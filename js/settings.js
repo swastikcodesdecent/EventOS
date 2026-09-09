@@ -96,7 +96,6 @@ class SettingsPageController {
           confirmClass: 'btn-danger',
           onConfirm: () => {
             StorageService.clearAllData();
-            localStorage.removeItem('eventos_first_run_completed');
             Toast.error('All data wiped. Refreshing application...');
             setTimeout(() => window.location.href = 'index.html', 800);
           }
