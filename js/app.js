@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
 class App {
   static init() {
     this.initTheme();
-    this.checkFirstRun();
     this.highlightActiveNav();
     this.initSidebarToggle();
     this.initGlobalSearch();
@@ -48,104 +47,6 @@ class App {
     StorageService.savePreferences({ theme: nextTheme });
     this.initTheme();
     Toast.info(`Switched to ${nextTheme} theme`);
-  }
-
-  // ==========================================
-  // 2. FIRST-RUN WORKSPACE SETUP (Pure Firebase Mode)
-  // ==========================================
-  static checkFirstRun() {
-    const hasInitialized = localStorage.getItem('eventos_first_run_completed');
-
-    if (!hasInitialized && StorageService.getEvents().length === 0) {
-      this.renderFirstRunModal(StorageService.getSettings());
-    }
-  }
-
-  static renderFirstRunModal(settings) {
-    let wizard = document.getElementById('first-run-wizard-modal');
-    if (!wizard) {
-      wizard = document.createElement('div');
-      wizard.id = 'first-run-wizard-modal';
-      wizard.className = 'modal-backdrop active';
-      wizard.innerHTML = `
-        <div class="modal-dialog" style="max-width: 520px;">
-          <div class="modal-header" style="border-bottom: none; padding-bottom: 0;">
-            <div style="display: flex; align-items: center; gap: 0.75rem;">
-              <div style="width: 38px; height: 38px; border-radius: 10px; background: linear-gradient(135deg, var(--primary), var(--secondary)); display: flex; align-items: center; justify-content: center; color: #FFF; font-weight: 800; font-size: 1.1rem;">E</div>
-              <div>
-                <h3 class="modal-title">Welcome to EventOS</h3>
-                <p style="font-size: 0.8rem; color: var(--text-muted);">Firebase Firestore Cloud Edition</p>
-              </div>
-            </div>
-          </div>
-          <div class="modal-body" style="padding-top: 1rem;">
-            <p style="margin-bottom: 1.25rem; font-size: 0.9rem;">Set up your workspace to begin managing events in Firebase.</p>
-            
-            <form id="first-run-form">
-              <div class="form-group">
-                <label class="form-label">Organization Name <span class="required-star">*</span></label>
-                <input type="text" id="fr-org-name" class="form-control" value="${settings.organizationName || ''}" required placeholder="e.g. Apex Tech Guild">
-              </div>
-              <div class="form-group">
-                <label class="form-label">Organizer Name <span class="required-star">*</span></label>
-                <input type="text" id="fr-organizer-name" class="form-control" value="${settings.organizerName || ''}" required placeholder="e.g. Swastik Paul">
-              </div>
-              <div class="form-row">
-                <div class="form-group">
-                  <label class="form-label">Contact Email <span class="required-star">*</span></label>
-                  <input type="email" id="fr-email" class="form-control" value="${settings.email || ''}" required placeholder="admin@eventos.local">
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Phone Number</label>
-                  <input type="text" id="fr-phone" class="form-control" value="${settings.phone || ''}" placeholder="+1 (555) 019-2834">
-                </div>
-              </div>
-
-              <div style="margin-top: 1.5rem;">
-                <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
-                  Initialize Firebase Workspace &rarr;
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      `;
-      document.body.appendChild(wizard);
-
-      const form = document.getElementById('first-run-form');
-      form.onsubmit = (e) => {
-        e.preventDefault();
-        this.saveFirstRunData();
-      };
-    }
-  }
-
-  static saveFirstRunData() {
-    const orgName = document.getElementById('fr-org-name').value.trim() || 'EventOS Organization';
-    const organizerName = document.getElementById('fr-organizer-name').value.trim() || 'Admin Organizer';
-    const email = document.getElementById('fr-email').value.trim() || 'admin@eventos.local';
-    const phone = document.getElementById('fr-phone').value.trim() || '';
-
-    StorageService.saveSettings({
-      organizationName: orgName,
-      organizerName,
-      email,
-      phone
-    });
-
-    localStorage.setItem('eventos_first_run_completed', 'true');
-
-    const modal = document.getElementById('first-run-wizard-modal');
-    if (modal) modal.remove();
-
-    Toast.success('Firebase workspace initialized successfully!');
-    setTimeout(() => {
-      if (!window.location.pathname.includes('dashboard.html')) {
-        window.location.href = 'dashboard.html';
-      } else {
-        window.location.reload();
-      }
-    }, 500);
   }
 
   // ==========================================
