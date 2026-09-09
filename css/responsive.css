@@ -1,0 +1,184 @@
+/* ==========================================================================
+   EventOS - Responsive Stylesheet
+   Breakpoints: 1920px, 1440px, 1024px, 768px, 480px, 360px
+   ========================================================================== */
+
+/* Large Screens (1920px+) */
+@media (min-width: 1920px) {
+  .main-content {
+    max-width: 1680px;
+  }
+  .events-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Standard Desktop / Laptops (1440px max) */
+@media (max-width: 1440px) {
+  .main-content {
+    max-width: 1280px;
+    padding: 1.5rem;
+  }
+}
+
+/* Tablet Landscape / Small Laptops (1024px max) */
+@media (max-width: 1024px) {
+  :root {
+    --sidebar-width: 220px;
+  }
+
+  .dashboard-grid-2,
+  .chart-grid-2,
+  .scanner-container {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar-search-wrapper {
+    width: 260px;
+  }
+
+  .events-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablet Portrait (768px max) */
+@media (max-width: 768px) {
+  :root {
+    --sidebar-width: 260px;
+  }
+
+  .app-sidebar {
+    transform: translateX(-100%);
+    box-shadow: 20px 0 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .app-sidebar.mobile-open {
+    transform: translateX(0);
+  }
+
+  .sidebar-backdrop.mobile-open {
+    display: block;
+  }
+
+  .app-main {
+    margin-left: 0;
+  }
+
+  .sidebar-toggle-btn {
+    display: inline-flex;
+  }
+
+  .topbar-search-wrapper {
+    display: none;
+  }
+
+  .app-topbar {
+    padding: 0 1rem;
+  }
+
+  .main-content {
+    padding: 1.25rem 1rem;
+  }
+
+  .form-row,
+  .form-row-3,
+  .form-row-4,
+  .dashboard-grid-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .events-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .toolbar-search-filter {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .workspace-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .workspace-kpis {
+    width: 100%;
+    justify-content: space-between;
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 1rem;
+  }
+
+  .workspace-kpi-block {
+    text-align: left;
+  }
+}
+
+/* Mobile Screens (480px max) */
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .events-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .welcome-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem;
+  }
+
+  .banner-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .banner-actions .btn {
+    width: 100%;
+  }
+
+  .ticket-meta-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-dialog {
+    max-height: 95vh;
+    border-radius: var(--radius-lg);
+  }
+
+  .modal-body {
+    padding: 1rem;
+  }
+
+  .modal-footer {
+    flex-direction: column-reverse;
+  }
+
+  .modal-footer .btn {
+    width: 100%;
+  }
+
+  .scanner-target-frame {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+/* Ultra Small Mobile (360px max) */
+@media (max-width: 360px) {
+  html {
+    font-size: 14px;
+  }
+
+  .stat-value {
+    font-size: 1.4rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+}

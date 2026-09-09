@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings & Firebase - EventOS</title>
+  <meta name="description" content="Configure organization defaults, appearance themes, and connect your Google Firebase Firestore project.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div class="app-container">
+    <aside class="app-sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="sidebar-brand">
+          <img src="assets/logo.svg" alt="EventOS">
+        </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Core Management</div>
+        <a href="dashboard.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+          <span>Dashboard</span>
+        </a>
+        <a href="events.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span>Events</span>
+        </a>
+        <a href="attendees.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span>Attendees</span>
+        </a>
+        <a href="tickets.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/></svg>
+          <span>Tickets</span>
+        </a>
+        <a href="scanner.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="12" r="3"/></svg>
+          <span>QR Scanner</span>
+        </a>
+
+        <div class="nav-section-title">Operations</div>
+        <a href="staff.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Staff</span>
+        </a>
+        <a href="gates.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 21h18M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"/><path d="M9 21v-4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v4"/></svg>
+          <span>Gates</span>
+        </a>
+        <a href="tasks.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <span>Tasks</span>
+        </a>
+        <a href="schedule.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Schedule</span>
+        </a>
+
+        <div class="nav-section-title">Insights & System</div>
+        <a href="analytics.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          <span>Analytics</span>
+        </a>
+        <a href="settings.html" class="nav-item active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          <span>Settings</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="org-profile-pill">
+          <div class="org-avatar">E</div>
+          <div class="org-info">
+            <span class="org-name">EventOS Organization</span>
+            <span class="org-role">Administrator</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="app-main">
+      <header class="app-topbar">
+        <div class="topbar-left">
+          <button class="sidebar-toggle-btn" title="Toggle Navigation">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <h1 class="page-title">Settings & Firebase Cloud</h1>
+        </div>
+
+        <div class="topbar-right">
+          <button class="theme-toggle-btn" title="Toggle Theme"></button>
+        </div>
+      </header>
+
+      <main class="main-content" style="max-width: 960px;">
+        <!-- Cloud Infrastructure Status Card -->
+        <div class="form-section-card" style="border: 1px solid rgba(99, 102, 241, 0.3); background: rgba(30, 41, 59, 0.5);">
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(99, 102, 241, 0.15); display: flex; align-items: center; justify-content: center; color: var(--primary);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              </div>
+              <div>
+                <h3 class="form-section-title" style="margin: 0; font-size: 1.05rem;">Cloud Infrastructure</h3>
+                <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0.15rem 0 0 0;">Google Firebase Firestore & Google Auth Active</p>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <span class="badge badge-success" style="display: inline-flex; align-items: center; gap: 0.35rem;">
+                <span style="width: 7px; height: 7px; border-radius: 50%; background: #10B981; display: inline-block;"></span>
+                Cloud Connected
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <form id="settings-form">
+          <!-- Section 1: Organization Profile -->
+          <div class="form-section-card">
+            <h3 class="form-section-title">1. Organization Details</h3>
+            <p class="form-section-desc">Entity name and public contact information</p>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Organization Name</label>
+                <input type="text" id="set-org-name" class="form-control" placeholder="e.g. Apex Tech Society">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Organizer Name</label>
+                <input type="text" id="set-organizer-name" class="form-control" placeholder="e.g. Swastik Paul">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Official Email</label>
+                <input type="email" id="set-email" class="form-control" placeholder="admin@eventos.local">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Phone Number</label>
+                <input type="text" id="set-phone" class="form-control" placeholder="+1 (555) 019-2834">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Website</label>
+                <input type="url" id="set-website" class="form-control" placeholder="https://eventos.local">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Physical Address</label>
+                <input type="text" id="set-address" class="form-control" placeholder="Silicon Valley, CA">
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 2: Code Prefixes & Defaults -->
+          <div class="form-section-card">
+            <h3 class="form-section-title">2. System Formats & Prefixes</h3>
+            <p class="form-section-desc">Identifiers for events, attendee registrations, and default currency</p>
+
+            <div class="form-row-3">
+              <div class="form-group">
+                <label class="form-label">Currency</label>
+                <select id="set-currency" class="form-control select-dropdown">
+                  <option value="USD ($)">USD ($)</option>
+                  <option value="EUR (€)">EUR (€)</option>
+                  <option value="GBP (£)">GBP (£)</option>
+                  <option value="INR (₹)">INR (₹)</option>
+                  <option value="CAD ($)">CAD ($)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Event Code Prefix</label>
+                <input type="text" id="set-evt-prefix" class="form-control mono" placeholder="EVT-">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Registration Prefix</label>
+                <input type="text" id="set-reg-prefix" class="form-control mono" placeholder="REG-2026-">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Default Ticket Tier Name</label>
+              <input type="text" id="set-default-ticket" class="form-control" placeholder="General Admission">
+            </div>
+          </div>
+
+          <!-- Section 3: Appearance -->
+          <div class="form-section-card">
+            <h3 class="form-section-title">3. Appearance & Theme</h3>
+            <p class="form-section-desc">Visual presentation and contrast mode</p>
+
+            <div class="form-group" style="max-width: 320px;">
+              <label class="form-label">Active Theme Mode</label>
+              <select id="set-theme" class="form-control select-dropdown">
+                <option value="dark">Dark Theme (Default)</option>
+                <option value="light">Light Theme</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 2rem;">
+            <button type="submit" class="btn btn-primary btn-lg">Save Settings</button>
+          </div>
+        </form>
+
+        <!-- Section 4: Backup & Data Management -->
+        <div class="form-section-card" style="border-color: var(--border-light);">
+          <h3 class="form-section-title">4. Database Backup & Portability</h3>
+          <p class="form-section-desc">Export and import complete snapshot JSON archives of all Firestore collections</p>
+
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+            <button type="button" id="btn-export-backup" class="btn btn-primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Export Complete Backup (.JSON)
+            </button>
+
+            <label class="btn btn-secondary" style="cursor: pointer;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              Import Backup (.JSON)
+              <input type="file" id="input-import-backup" accept=".json" style="display: none;">
+            </label>
+          </div>
+
+          <!-- Danger Zone -->
+          <div style="border-top: 1px solid var(--border-subtle); padding-top: 1.25rem; display: flex; align-items: center; justify-content: space-between;">
+            <div>
+              <h4 style="font-size: 0.95rem; color: var(--danger);">Reset Application</h4>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Permanently wipe all database records and start fresh.</p>
+            </div>
+            <button type="button" id="btn-clear-data" class="btn btn-danger btn-sm">Clear All Data</button>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/settings.js"></script>
+</body>
+</html>

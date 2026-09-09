@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In &bull; EventOS Cloud Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    .auth-wrapper {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+      background: radial-gradient(circle at 50% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 60%),
+                  radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
+                  var(--bg-main);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .auth-bg-grid {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+
+    .auth-card {
+      width: 100%;
+      max-width: 440px;
+      background: rgba(30, 41, 59, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 2.75rem 2.25rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 40px rgba(99, 102, 241, 0.2);
+      text-align: center;
+      position: relative;
+      z-index: 10;
+      animation: authCardIn 0.5s ease-out forwards;
+    }
+
+    @keyframes authCardIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.98);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .auth-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      text-decoration: none;
+    }
+
+    .google-btn {
+      width: 100%;
+      padding: 0.875rem 1.25rem;
+      border-radius: var(--radius-md);
+      background: #FFFFFF;
+      color: #1F2937;
+      font-weight: 600;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.85rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+      transition: all var(--transition-fast);
+      margin: 2rem 0 1.25rem 0;
+    }
+
+    .google-btn:hover {
+      background: #F8FAFC;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .google-btn:active {
+      transform: translateY(0);
+    }
+
+    .google-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    [data-theme="light"] .auth-wrapper {
+      background: radial-gradient(circle at 50% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 60%),
+                  radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.06) 0%, transparent 50%),
+                  #F8FAFC;
+    }
+    [data-theme="light"] .auth-bg-grid {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    }
+    [data-theme="light"] .auth-card {
+      background: rgba(255, 255, 255, 0.95) !important;
+      border: 1px solid #E2E8F0 !important;
+      box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.08), 0 0 30px rgba(79, 70, 229, 0.08) !important;
+    }
+    [data-theme="light"] .google-btn {
+      background: #FFFFFF !important;
+      border: 1px solid #CBD5E1 !important;
+      color: #1F2937 !important;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05) !important;
+    }
+    [data-theme="light"] .google-btn:hover {
+      background: #F8FAFC !important;
+      border-color: #94A3B8 !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    }
+
+    .feature-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      justify-content: center;
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="auth-wrapper">
+    <div class="auth-bg-grid"></div>
+
+    <div class="auth-card">
+      <a href="index.html" class="auth-brand">
+        <div class="brand-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+        </div>
+        <span class="brand-name" style="font-size: 1.4rem;">EventOS</span>
+      </a>
+
+      <h2 style="font-size: 1.6rem; font-weight: 800; margin-bottom: 0.5rem; letter-spacing: -0.02em;">Welcome Back</h2>
+      <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
+        Sign in to your EventOS Cloud account to access your live dashboard, tickets, gates, and analytics.
+      </p>
+
+      <button id="google-signin-btn" class="google-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24">
+          <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+          <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+          <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+          <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+        </svg>
+        <span id="btn-text">Continue with Google</span>
+      </button>
+
+      <div id="auth-status-message" style="display: none; padding: 0.75rem; border-radius: 8px; font-size: 0.85rem; margin-top: 1rem;"></div>
+
+      <div style="margin-top: 2rem; border-top: 1px solid var(--border-subtle); padding-top: 1.5rem;">
+        <div class="feature-pill">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--success);"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>Encrypted Cloud Storage &bull; Firebase Auth</span>
+        </div>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 1.25rem;">
+          Looking for a public event pass? <a href="index.html" style="color: var(--primary); text-decoration: none; font-weight: 600;">Browse Public Events &rarr;</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/utils.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const btn = document.getElementById('google-signin-btn');
+      const btnText = document.getElementById('btn-text');
+      const statusMsg = document.getElementById('auth-status-message');
+
+      // Helper to get target redirect url
+      function getRedirectUrl() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const redir = urlParams.get('redirect');
+        return (redir && !redir.includes('login.html')) ? decodeURIComponent(redir) : 'dashboard.html';
+      }
+
+      // Check if user is already logged in
+      const existing = await AuthService.waitForAuth();
+      if (existing) {
+        window.location.href = getRedirectUrl();
+        return;
+      }
+
+      btn.addEventListener('click', async () => {
+        btn.disabled = true;
+        btnText.textContent = 'Connecting to Google...';
+        statusMsg.style.display = 'none';
+
+        try {
+          const result = await AuthService.signInWithGoogle();
+          if (result && result.success) {
+            btnText.textContent = 'Success! Redirecting...';
+            statusMsg.style.display = 'block';
+            statusMsg.style.background = 'rgba(16, 185, 129, 0.15)';
+            statusMsg.style.color = '#34D399';
+            statusMsg.textContent = 'Signed in as ' + result.user.displayName;
+            setTimeout(() => {
+              window.location.href = getRedirectUrl();
+            }, 600);
+          }
+        } catch (err) {
+          btn.disabled = false;
+          btnText.textContent = 'Continue with Google';
+          statusMsg.style.display = 'block';
+          statusMsg.style.background = 'rgba(239, 68, 68, 0.15)';
+          statusMsg.style.color = '#F87171';
+          
+          if (err.code === 'auth/configuration-not-found' || err.code === 'auth/operation-not-allowed') {
+            statusMsg.innerHTML = '<strong>Google Auth not yet enabled:</strong> Please enable Google Sign-in provider in your Firebase Console &gt; Authentication &gt; Sign-in method.';
+          } else if (err.code === 'auth/popup-closed-by-user') {
+            statusMsg.textContent = 'Sign-in window closed. Please try again.';
+          } else {
+            statusMsg.textContent = err.message || 'Authentication error. Please verify your connection.';
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

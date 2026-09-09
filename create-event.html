@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Event - EventOS</title>
+  <meta name="description" content="Configure a new event with multi-tier ticketing, dates, venue specs, and custom branding.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="app-sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="sidebar-brand">
+          <img src="assets/logo.svg" alt="EventOS">
+        </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Core Management</div>
+        <a href="dashboard.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+          <span>Dashboard</span>
+        </a>
+        <a href="events.html" class="nav-item active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span>Events</span>
+        </a>
+        <a href="attendees.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span>Attendees</span>
+        </a>
+        <a href="tickets.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/></svg>
+          <span>Tickets</span>
+        </a>
+        <a href="scanner.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="12" r="3"/></svg>
+          <span>QR Scanner</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="org-profile-pill">
+          <div class="org-avatar">E</div>
+          <div class="org-info">
+            <span class="org-name">EventOS Organization</span>
+            <span class="org-role">Administrator</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Viewport -->
+    <div class="app-main">
+      <header class="app-topbar">
+        <div class="topbar-left">
+          <button class="sidebar-toggle-btn" title="Toggle Navigation">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <h1 class="page-title" id="form-page-title">Create New Event</h1>
+        </div>
+
+        <div class="topbar-right">
+          <button class="theme-toggle-btn" title="Toggle Theme"></button>
+          <a href="events.html" class="btn btn-secondary btn-sm">
+            &larr; Back to Events
+          </a>
+        </div>
+      </header>
+
+      <main class="main-content" style="max-width: 900px;">
+        <form id="event-form">
+          <!-- Section 1: Basic Information -->
+          <div class="form-section-card">
+            <h3 class="form-section-title">1. Basic Information</h3>
+            <p class="form-section-desc">Event title, category, and organizing entity details</p>
+
+            <div class="form-group">
+              <label class="form-label">Event Name <span class="required-star">*</span></label>
+              <input type="text" id="evt-name" class="form-control" required placeholder="e.g. National Hackathon 2026">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Category <span class="required-star">*</span></label>
+                <select id="evt-category" class="form-control select-dropdown" required>
+                  <option value="Conference">Conference</option>
+                  <option value="Workshop">Workshop</option>
+                  <option value="Hackathon">Hackathon</option>
+                  <option value="Competition">Competition</option>
+                  <option value="Sports">Sports</option>
+                  <option value="Cultural">Cultural</option>
+                  <option value="Concert">Concert</option>
+                  <option value="School">School</option>
+                  <option value="College">College</option>
+                  <option value="Corporate">Corporate</option>
+                  <option value="Seminar">Seminar</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Organizer <span class="required-star">*</span></label>
+                <input type="text" id="evt-organizer" class="form-control" required placeholder="e.g. Tech Innovators Club">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Description & Overview</label>
+              <textarea id="evt-description" class="form-control" rows="3" placeholder="Describe the purpose, highlights, and agenda of this event"></textarea>
+            </div>
+          </div>
+
+          <!-- Section 2: Date & Time -->
+          <div class="form-section-card">
+            <h3 class="form-section-title">2. Date & Timing</h3>
+            <p class="form-section-desc">Event start and conclusion windows</p>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Start Date <span class="required-star">*</span></label>
+                <input type="date" id="evt-start-date" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Start Time <span class="required-star">*</span></label>
+                <input type="time" id="evt-start-time" class="form-control" required value="09:00">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">End Date <span class="required-star">*</span></label>
+                <input type="date" id="evt-end-date" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">End Time <span class="required-star">*</span></label>
+                <input type="time" id="evt-end-time" class="form-control" required value="18:00">
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 3: Location -->
+          <div class="form-section-card">
+            <h3 class="form-section-title">3. Venue & Location</h3>
+            <p class="form-section-desc">Physical auditorium or virtual meeting broadcast</p>
+
+            <div class="form-group">
+              <label class="form-label">Event Mode</label>
+              <select id="evt-mode" class="form-control select-dropdown">
+                <option value="Offline" selected>Offline (In-Person Venue)</option>
+                <option value="Online">Online (Live Stream / Webinar)</option>
+                <option value="Hybrid">Hybrid (In-Person & Online)</option>
+              </select>
+            </div>
+
+            <div id="group-venue">
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">Venue Name</label>
+                  <input type="text" id="evt-venue" class="form-control" placeholder="e.g. Grand Auditorium, Hall B">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">City</label>
+                  <input type="text" id="evt-city" class="form-control" placeholder="e.g. San Francisco, CA">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Address</label>
+                <input type="text" id="evt-address" class="form-control" placeholder="Street address or campus building">
+              </div>
+            </div>
+
+            <div class="form-group" id="group-online-url" style="display: none;">
+              <label class="form-label">Stream / Virtual Meeting URL</label>
+              <input type="url" id="evt-online-url" class="form-control" placeholder="https://stream.yourdomain.com">
+            </div>
+          </div>
+
+          <!-- Section 4: Capacity -->
+          <div class="form-section-card">
+            <h3 class="form-section-title">4. Capacity & Registration Limits</h3>
+            <p class="form-section-desc">Attendee thresholds and ticketing limits</p>
+
+            <div class="form-group">
+              <label class="form-label">Maximum Total Capacity <span class="required-star">*</span></label>
+              <input type="number" id="evt-capacity" class="form-control" required min="1" value="200" placeholder="e.g. 500">
+              <span class="form-hint">Registration will automatically close once this limit is reached.</span>
+            </div>
+          </div>
+
+          <!-- Section 5: Branding -->
+          <div class="form-section-card">
+            <h3 class="form-section-title">5. Branding & Aesthetics</h3>
+            <p class="form-section-desc">Custom banner imagery, accents, and theme colors</p>
+
+            <div class="form-group">
+              <label class="form-label">Cover Banner Image URL</label>
+              <input type="url" id="evt-cover-image" class="form-control" placeholder="https://images.unsplash.com/photo-...">
+              
+              <div style="display: flex; gap: 0.5rem; margin-top: 0.75rem; flex-wrap: wrap;">
+                <button type="button" class="btn btn-secondary btn-sm cover-preset-btn" data-url="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80">Tech Conference</button>
+                <button type="button" class="btn btn-secondary btn-sm cover-preset-btn" data-url="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=80">AI Summit</button>
+                <button type="button" class="btn btn-secondary btn-sm cover-preset-btn" data-url="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=80">Cultural Festival</button>
+                <button type="button" class="btn btn-secondary btn-sm cover-preset-btn" data-url="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1200&q=80">Sports Arena</button>
+              </div>
+
+              <img id="cover-preview-img" class="file-upload-preview" alt="Cover Preview" style="width: 100%; max-height: 180px; object-fit: cover;">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Primary Brand Accent</label>
+                <div class="color-picker-group">
+                  <input type="color" id="evt-primary-color" class="color-input-preview" value="#6366F1">
+                  <input type="text" id="evt-primary-hex" class="form-control" value="#6366F1">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Secondary Brand Accent</label>
+                <div class="color-picker-group">
+                  <input type="color" id="evt-secondary-color" class="color-input-preview" value="#8B5CF6">
+                  <input type="text" id="evt-secondary-hex" class="form-control" value="#8B5CF6">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form Actions -->
+          <div style="display: flex; align-items: center; justify-content: flex-end; gap: 1rem; margin-bottom: 4rem;">
+            <a href="events.html" class="btn btn-secondary">Cancel</a>
+            <button type="submit" id="event-submit-btn" class="btn btn-secondary">Save as Draft</button>
+            <button type="button" id="event-publish-btn" class="btn btn-primary btn-lg">Publish Event &rarr;</button>
+          </div>
+        </form>
+      </main>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/create-event.js"></script>
+</body>
+</html>

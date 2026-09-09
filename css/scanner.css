@@ -1,0 +1,207 @@
+/* ==========================================================================
+   EventOS - QR Scanner Stylesheet
+   Camera Viewport, Laser Animation, Gate Selection & Feedback Cards
+   ========================================================================== */
+
+.scanner-container {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.scanner-viewport-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.scanner-top-bar {
+  padding: 1rem 1.5rem;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.gate-selector-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.camera-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: #000000;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#scanner-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#scanner-canvas {
+  display: none;
+}
+
+/* Viewfinder Target Frame */
+.scanner-target-frame {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-lg);
+  pointer-events: none;
+  box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.55);
+}
+
+/* Corner highlights */
+.scanner-target-frame::before,
+.scanner-target-frame::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-color: var(--primary);
+  border-style: solid;
+  pointer-events: none;
+}
+
+.scanner-target-frame::before {
+  top: -2px;
+  left: -2px;
+  border-width: 3px 0 0 3px;
+  border-top-left-radius: var(--radius-md);
+}
+
+.scanner-target-frame::after {
+  bottom: -2px;
+  right: -2px;
+  border-width: 0 3px 3px 0;
+  border-bottom-right-radius: var(--radius-md);
+}
+
+/* Laser Scan Line */
+.scanner-laser {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #EC4899, #6366F1, transparent);
+  box-shadow: 0 0 12px #EC4899;
+  animation: laserScan 2.2s ease-in-out infinite alternate;
+}
+
+@keyframes laserScan {
+  0% { transform: translateY(10px); }
+  100% { transform: translateY(210px); }
+}
+
+.camera-controls-bar {
+  padding: 0.85rem 1.5rem;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Result Verification Box */
+.scan-result-card {
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  display: none;
+  animation: popIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.scan-result-card.active {
+  display: block;
+}
+
+.scan-result-card.success {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid var(--success-border);
+}
+
+.scan-result-card.duplicate {
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid var(--warning-border);
+}
+
+.scan-result-card.invalid {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid var(--danger-border);
+}
+
+.scan-status-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.scan-result-card.success .scan-status-header { color: var(--success); }
+.scan-result-card.duplicate .scan-status-header { color: var(--warning); }
+.scan-result-card.invalid .scan-status-header { color: var(--danger); }
+
+/* Manual Check-In Panel */
+.manual-checkin-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.scanner-feed-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.scanner-feed-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 0.85rem;
+  background: var(--bg-surface);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--success);
+  font-size: 0.84rem;
+}
+
+.scanner-feed-item.duplicate {
+  border-left-color: var(--warning);
+}
+
+.scanner-feed-item.invalid {
+  border-left-color: var(--danger);
+}

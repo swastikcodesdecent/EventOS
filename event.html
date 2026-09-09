@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Workspace - EventOS</title>
+  <meta name="description" content="Event operations cockpit - Live registration control, ticket types, attendance tracking, and gate management.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/events.css">
+  <link rel="stylesheet" href="css/tickets.css">
+  <link rel="stylesheet" href="css/scanner.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="app-sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="sidebar-brand">
+          <img src="assets/logo.svg" alt="EventOS">
+        </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Core Management</div>
+        <a href="dashboard.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+          <span>Dashboard</span>
+        </a>
+        <a href="events.html" class="nav-item active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span>Events</span>
+        </a>
+        <a href="attendees.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span>Attendees</span>
+        </a>
+        <a href="tickets.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/></svg>
+          <span>Tickets</span>
+        </a>
+        <a href="scanner.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="12" r="3"/></svg>
+          <span>QR Scanner</span>
+        </a>
+
+        <div class="nav-section-title">Operations</div>
+        <a href="staff.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Staff</span>
+        </a>
+        <a href="gates.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 21h18M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"/><path d="M9 21v-4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v4"/></svg>
+          <span>Gates</span>
+        </a>
+        <a href="tasks.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <span>Tasks</span>
+        </a>
+        <a href="schedule.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Schedule</span>
+        </a>
+
+        <div class="nav-section-title">Insights & System</div>
+        <a href="analytics.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          <span>Analytics</span>
+        </a>
+        <a href="settings.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          <span>Settings</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="org-profile-pill">
+          <div class="org-avatar">E</div>
+          <div class="org-info">
+            <span class="org-name">EventOS Organization</span>
+            <span class="org-role">Administrator</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Viewport -->
+    <div class="app-main">
+      <header class="app-topbar">
+        <div class="topbar-left">
+          <button class="sidebar-toggle-btn" title="Toggle Navigation">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <a href="events.html" style="color: var(--text-secondary); font-size: 0.88rem;">&larr; Events</a>
+          <span style="color: var(--border-light);">/</span>
+          <span style="font-weight: 600;">Workspace</span>
+        </div>
+
+        <div class="topbar-right">
+          <button class="theme-toggle-btn" title="Toggle Theme"></button>
+          <a href="#" id="ws-public-btn" target="_blank" class="btn btn-secondary btn-sm" title="View Public Landing Page">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Public Page
+          </a>
+          <a href="#" id="ws-edit-btn" class="btn btn-secondary btn-sm">Edit Config</a>
+          <button id="ws-publish-action-btn" class="btn btn-success btn-sm" style="display: none;">Publish Now</button>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <!-- Event Workspace Header (Section 16) -->
+        <div class="workspace-header">
+          <div class="workspace-title-area">
+            <h1 id="ws-event-name">Event Title</h1>
+            <div class="workspace-meta-pills">
+              <span id="ws-event-status-badge" class="badge badge-published">Published</span>
+              <span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                <span id="ws-event-date">Date TBD</span>
+              </span>
+              <span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span id="ws-event-venue">Venue TBD</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="workspace-kpis">
+            <div class="workspace-kpi-block">
+              <span class="workspace-kpi-number" id="ws-kpi-regs">0 / 0</span>
+              <span class="workspace-kpi-label">Registered</span>
+            </div>
+            <div class="workspace-kpi-block">
+              <span class="workspace-kpi-number text-success" id="ws-kpi-checks">0 (0%)</span>
+              <span class="workspace-kpi-label">Checked In</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Tabs (Section 16) -->
+        <div class="workspace-tabs">
+          <button class="workspace-tab-btn active" data-tab="overview">Overview</button>
+          <button class="workspace-tab-btn" data-tab="attendees">Registrations</button>
+          <button class="workspace-tab-btn" data-tab="tickets">Ticket Tiers</button>
+          <button class="workspace-tab-btn" data-tab="checkin">Live Check-In</button>
+          <button class="workspace-tab-btn" data-tab="staff">Staff</button>
+          <button class="workspace-tab-btn" data-tab="gates">Gates</button>
+          <button class="workspace-tab-btn" data-tab="tasks">Tasks</button>
+          <button class="workspace-tab-btn" data-tab="schedule">Schedule</button>
+          <button class="workspace-tab-btn" data-tab="analytics">Analytics</button>
+        </div>
+
+        <!-- Tab 1: Overview (Section 17) -->
+        <div id="tab-pane-overview" class="workspace-tab-pane active">
+          <div class="dashboard-grid-cards">
+            <!-- Registration Progress -->
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Registration Capacity</h4>
+                <span id="ws-ov-reg-label" style="font-weight: 700; font-size: 0.9rem;">0 / 0 (0%)</span>
+              </div>
+              <div class="progress-bar-container">
+                <div id="ws-ov-reg-bar" class="progress-bar-fill" style="width: 0%;"></div>
+              </div>
+              <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.5rem;">Based on event maximum venue capacity threshold.</p>
+            </div>
+
+            <!-- Attendance Progress -->
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Turnout & Attendance</h4>
+                <span id="ws-ov-att-label" style="font-weight: 700; font-size: 0.9rem; color: var(--success);">0 / 0 (0%)</span>
+              </div>
+              <div class="progress-bar-container">
+                <div id="ws-ov-att-bar" class="progress-bar-fill success" style="width: 0%;"></div>
+              </div>
+              <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.5rem;">Validated check-ins against confirmed attendee registrations.</p>
+            </div>
+          </div>
+
+          <div class="dashboard-grid-2">
+            <div>
+              <!-- Ticket Distribution -->
+              <div class="card" style="margin-bottom: 1.5rem;">
+                <div class="card-header">
+                  <h4 class="card-title">Ticket Tiers Distribution</h4>
+                </div>
+                <div id="ws-ov-ticket-types"></div>
+              </div>
+
+              <!-- Upcoming Schedule -->
+              <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title">Upcoming Agenda Timeline</h4>
+                </div>
+                <div id="ws-ov-schedule"></div>
+              </div>
+            </div>
+
+            <!-- Event Activity Stream -->
+            <div>
+              <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title">Recent Event Activity</h4>
+                </div>
+                <div id="ws-ov-activity" class="activity-list"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Attendees / Registrations (Section 18) -->
+        <div id="tab-pane-attendees" class="workspace-tab-pane">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+            <h3>Registered Attendees</h3>
+            <button class="btn btn-primary btn-sm" onclick="EventWorkspaceController.openAddAttendeeModal()">+ Register Attendee</button>
+          </div>
+          <div class="table-responsive card" style="padding: 0;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Attendee</th>
+                  <th>Reg ID</th>
+                  <th>Ticket Tier</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>Check-In</th>
+                  <th style="text-align: right;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="ws-attendees-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Tab 3: Tickets (Section 21) -->
+        <div id="tab-pane-tickets" class="workspace-tab-pane">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+            <h3>Configured Ticket Tiers</h3>
+            <a href="tickets.html" class="btn btn-secondary btn-sm">Open Full Tickets Manager &rarr;</a>
+          </div>
+          <div id="ws-ticket-types-grid" class="events-grid"></div>
+        </div>
+
+        <!-- Tab 4: Live Check-In (Section 25) -->
+        <div id="tab-pane-checkin" class="workspace-tab-pane">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+            <h3>Gate Check-In Monitor</h3>
+            <a href="scanner.html" class="btn btn-primary btn-sm">Launch QR Scanner Terminal</a>
+          </div>
+          <div class="card">
+            <h4 style="margin-bottom: 1rem;">Real-Time Scanned Passes</h4>
+            <div id="ws-checkin-scans-list" class="scanner-feed-list"></div>
+          </div>
+        </div>
+
+        <!-- Tab 5: Staff (Section 27) -->
+        <div id="tab-pane-staff" class="workspace-tab-pane">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+            <h3>Stationed Staff</h3>
+            <a href="staff.html" class="btn btn-secondary btn-sm">Manage Staff Roster &rarr;</a>
+          </div>
+          <div class="table-responsive card" style="padding: 0;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Role</th>
+                  <th>Assigned Gate</th>
+                  <th>Contact</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="ws-staff-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Tab 6: Gates (Section 26) -->
+        <div id="tab-pane-gates" class="workspace-tab-pane">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+            <h3>Gate Access Points</h3>
+            <a href="gates.html" class="btn btn-secondary btn-sm">Manage Gates &rarr;</a>
+          </div>
+          <div id="ws-gates-grid" class="events-grid"></div>
+        </div>
+
+        <!-- Tab 7: Tasks (Section 28) -->
+        <div id="tab-pane-tasks" class="workspace-tab-pane">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+            <h3>Event Operations Tasks</h3>
+            <a href="tasks.html" class="btn btn-secondary btn-sm">Kanban Board &rarr;</a>
+          </div>
+          <div id="ws-tasks-list"></div>
+        </div>
+
+        <!-- Tab 8: Schedule (Section 29) -->
+        <div id="tab-pane-schedule" class="workspace-tab-pane">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+            <h3>Agenda Timeline</h3>
+            <a href="schedule.html" class="btn btn-secondary btn-sm">Agenda Builder &rarr;</a>
+          </div>
+          <div id="ws-schedule-timeline"></div>
+        </div>
+
+        <!-- Tab 9: Analytics (Section 31) -->
+        <div id="tab-pane-analytics" class="workspace-tab-pane">
+          <div class="stats-grid" style="margin-bottom: 1.5rem;">
+            <div class="stat-card">
+              <div class="stat-icon indigo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+              <div class="stat-info">
+                <span class="stat-label">Confirmed Regs</span>
+                <span class="stat-value" id="ws-an-total-regs">0</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon emerald"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+              <div class="stat-info">
+                <span class="stat-label">Total Checked In</span>
+                <span class="stat-value" id="ws-an-total-checks">0</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon rose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+              <div class="stat-info">
+                <span class="stat-label">Attendance Rate</span>
+                <span class="stat-value" id="ws-an-rate">0%</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+              <div class="stat-info">
+                <span class="stat-label">Capacity Utilized</span>
+                <span class="stat-value" id="ws-an-cap">0%</span>
+              </div>
+            </div>
+          </div>
+          <div style="text-align: center;">
+            <a href="analytics.html" class="btn btn-primary">Open Comprehensive Analytics Suite &rarr;</a>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/event-workspace.js"></script>
+</body>
+</html>
